@@ -5,7 +5,7 @@ import fetchResturants from "../hooks/fetchResturants";
 import RestaurantsList from "../components/RestaurantsList";
 
 const SearchScreen = () => {
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState('');
   const [fetchApi, restaurants, errorMessage] = fetchResturants();
 
   //   price === '$' || '$$' || '$$$' || '$$$$'
