@@ -6,3 +6,4 @@ export default axios.create({
         Authorization: 'Bearer allEBgz8Gq24kFgef-uAc23ZQ3eQJCEUvcwN2eTuDwPyPN6BuEh-ZFhGjOGRjeI-cW8TZwqhE9uMpe-zbiY4x-eoNMFtbj6QfY4aHHBchILbDhL1GjqkiUXEtmKlYXYx'
     }
 })
+

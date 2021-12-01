@@ -4,7 +4,7 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 function RestaurantDetail ({restaurant}){
     return(
         <View style={styles.container}>
-            <Image style={styles.imageStyle} source={{uri: restaurant.image_urk}} />
+            <Image style={styles.imageStyle} source={{uri: restaurant.image_url}} />
             <Text style={styles.nameStyle}>{restaurant.name}</Text>
             <Text>{restaurant.rating} starts, {restaurant.review_count} Reviews</Text>
         </View>

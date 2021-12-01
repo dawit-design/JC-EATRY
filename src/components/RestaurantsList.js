@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import {withNavigation} from "react-navigation";
 import RestaurantDetail from "./RestaurantDetail";
@@ -18,7 +18,7 @@ const RestaurantsList = ({title, restaurants, navigation}) => {
                 keyExtractor={(restaurant) => restaurant.id}
                 renderItem={({item}) => {
                     return (
-                        <TouchableOpacity onpress={() => navigation.navigate(''), {id: item.id}}>
+                        <TouchableOpacity onpress={() => navigation.navigate('RestaurantShow'), {id: item.id}}>
                             <RestaurantDetail restaurant={item}/>
                         </TouchableOpacity>
                     )

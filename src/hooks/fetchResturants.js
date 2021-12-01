@@ -1,13 +1,14 @@
 import {useState, useEffect} from 'react';
-import api from '../services/api'
+import yelpApi from '../api/yelpApi'
 
-export default () =>{
+
+export default  () => {
     const [restaurants, setRestaurants] = useState([])
-    const [errorMessage, setErrorMessage] =useState('')
-
-    const fetchApi = async (searchTerm) => {
-        try {
-            const response = await api.get('/search', {
+    const [errorMessage, setErrorMessage] = useState('')
+    
+    const fetchApi = async (searchTerm) =>{
+        try{
+            const response = await yelpApi.get('/search', {
                 params: {
                     limit: 50,
                     term: searchTerm,
@@ -16,12 +17,12 @@ export default () =>{
             })
             // console.log(response.data.businesses)
             setRestaurants(response.data.businesses)
-        }catch(error){
-            setErrorMessage('Something Went Wrong!!')
+        } catch(error) {
+            setErrorMessage('Something went Wrong!!!')
         }
     }
     useEffect(() => {
-        fetchApi('Pasta')
+        fetchApi('pasta')
     },[])
 
     return [fetchApi, restaurants, errorMessage]

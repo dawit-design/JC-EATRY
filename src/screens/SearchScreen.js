@@ -8,27 +8,26 @@ const SearchScreen = () => {
   const [term, setTerm] = useState("");
   const [fetchApi, restaurants, errorMessage] = fetchResturants();
 
+  //   price === '$' || '$$' || '$$$' || '$$$$'
   const filterByPrice = (price) => {
-    //   price === '$' || '$$' || '$$$' || '$$$$'
-    return restaurants.filter((restaurant) => {
-      return restaurant.price === price;
-    });
-  };
+    return restaurants.filter(restaurant => {
+      return restaurant.price === price
+    })
+  }
   return (
     <View>
-      <Text>Search Screen</Text>
       <SearchBar
         term={term}
         onTermChange={setTerm}
         onTermSubmit={() => fetchApi(term)}
       />
-      {errorMessage ? <Text>{errorMessage}</Text> : null}
       {<Text> we have found {restaurants.length} restaurants</Text>}
+      {errorMessage ? <Text>{errorMessage}</Text> : null}
       <ScrollView>
-        <RestaurantsList results={filterByPrice("$")} title="Cost Effective" />
-        <RestaurantsList results={filterByPrice("$$")} title="Bit Pricier" />
-        <RestaurantsList results={filterByPrice("$$$")} title="Bit Spender" />
-        <RestaurantsList results={filterByPrice("$$$$")} title="Bit Expensive" />
+        <RestaurantsList restaurants={filterByPrice("$")} title="Cost Effective" />
+        <RestaurantsList restaurants={filterByPrice("$$")} title="Bit Pricier" />
+        <RestaurantsList restaurants={filterByPrice("$$$")} title="Bit Spender" />
+        <RestaurantsList restaurants={filterByPrice("$$$$")} title="Expensive" />
       </ScrollView>
     </View>
   );
