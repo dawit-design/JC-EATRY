@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
-function RestaurantDetail (restaurant){
+function RestaurantDetail ({restaurant}){
     return(
         <View style={styles.container}>
             <Image style={styles.imageStyle} source={{uri: restaurant.image_urk}} />

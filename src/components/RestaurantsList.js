@@ -4,9 +4,9 @@ import {withNavigation} from "react-navigation";
 import RestaurantDetail from "./RestaurantDetail";
 
 const RestaurantsList = ({title, restaurants, navigation}) => {
-    if(!restaurants.length) {
-        return null
-    }
+    // if(!restaurants.length) {
+    //     return null
+    // }
 
     return (
         <View style={styles.container}>
