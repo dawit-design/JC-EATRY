@@ -3,25 +3,25 @@ import api from '../services/api'
 
 export default () =>{
     const [restaurants, setRestaurants] = useState([])
-    cosnt [errorMessage, setErrorMessage] =useState('')
+    const [errorMessage, setErrorMessage] =useState('')
 
-    const fetchApi = async (restaurant) => {
+    const fetchApi = async (searchTerm) => {
         try {
             const response = await api.get('/search', {
                 params: {
                     limit: 50,
-                    term: restaurant,
+                    term: searchTerm,
                     location: 'Jersey City'
                 }
             })
-            console.log(response.data.businesses)
+            // console.log(response.data.businesses)
             setRestaurants(response.data.businesses)
         }catch(error){
             setErrorMessage('Something Went Wrong!!')
         }
     }
     useEffect(() => {
-        fetchApi('pasta')
+        fetchApi('Pasta')
     },[])
 
     return [fetchApi, restaurants, errorMessage]
